@@ -11,5 +11,9 @@ func main() {
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
-	e.Logger.Fatal(e.Start(":1323"))
+	//fmt.Println("Server is running on port 1323")
+	//e.Logger.Fatal(e.Start(":1323"))
+	go e.Start(":1323")
+	go e.Start(":1324")
+	e.Start(":1325")
 }
