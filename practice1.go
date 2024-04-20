@@ -27,6 +27,10 @@ func main() {
 	newSlices[0] = 200
 	fmt.Println("newSlices changed: ", slices, newSlices, new2Slices)
 
-	// 주소를 출력해보면, newSlices와 new2Slices가 같은 주소를 가리키는 것을 확인할 수 있다.
-	fmt.Printf("slices: %p, newSlices: %p, new2Slices: %p\n", slices, newSlices, new2Slices)
+	// 주소를 출력해보면, newSlices와 new2Slices가 포인터로 같은 배열 주소를 가리키는 것을 확인할 수 있다.
+	fmt.Printf("[array address] slices : %p, newSlices: %p, new2Slices: %p\n", slices, newSlices, new2Slices)
+	// 하지만 실제 슬라이스의 주소는 다르다. 다른 객체이기 때문이다.
+	fmt.Printf("[slice address] slices: %p, newSlices: %p, new2Slices: %p\n", &slices, &newSlices, &new2Slices)
+	// 길이와 용량을 출력해보면, newSlices와 new2Slices의 길이가 다르고 용량은 같다는 것을 확인할 수 있다.
+	fmt.Println(len(slices), cap(slices), len(newSlices), cap(newSlices), len(new2Slices), cap(new2Slices))
 }
